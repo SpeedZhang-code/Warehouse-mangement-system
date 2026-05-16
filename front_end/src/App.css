@@ -1,0 +1,101 @@
+.main-layout {
+  min-height: 100vh;
+}
+
+.logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  text-align: center;
+  line-height: 32px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.site-header {
+  background: #fff !important;
+  padding: 0 24px !important;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 0 1px 4px rgba(0,21,41,.08);
+  z-index: 1;
+}
+
+.site-content {
+  margin: 0 16px;
+}
+
+.dashboard-container {
+  padding-top: 16px;
+}
+
+.stat-card {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.page-placeholder {
+  padding: 100px;
+  text-align: center;
+  font-size: 20px;
+  color: #999;
+}
+
+/* 確保全畫面不出現整頁的水平滾動條 */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* 1. 確保最外層的佈局容器使用 flex 且寬度正確 */
+.main-layout {
+  display: flex;        /* 確保是 Flex 佈局 */
+  height: 100vh;
+  width: 100vw;         /* 限制在視窗寬度 */
+  overflow: hidden;
+}
+
+/* 2. 右側內容區的核心修正 */
+.site-content {
+  flex: 1;              /* 自動分配剩餘寬度 */
+  background: #f0f2f5;
+  padding: 16px;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+  overflow-x: auto;     /* 改為 auto：當表格太寬時，讓這區塊內部出現捲軸，而不是整頁爆開 */
+  min-width: 0;         /* 極重要：這會覆蓋 flex 項目的預設 min-width: auto，防止被內部表格撐開 */
+}
+
+/* 3. 如果你有使用 Ant Design 的 Layout，確保它的層級也是滿版 */
+.ant-layout {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+}
+
+/* 4. 針對你的 React 元件外層 */
+.p-6.max-w-6xl {
+  max-width: 100% !important; /* 確保在小螢幕或有側欄時不會鎖死在 6xl */
+  width: 100%;
+}
+
+/* 確保表單容器不會被撐開 */
+form {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 針對行動端或小螢幕的優化 */
+@media (max-width: 768px) {
+  .site-content {
+    padding: 8px; /* 縮小內距 */
+  }
+  
+  /* 讓品項在手機上變成一列一個 */
+  .new-item-row {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+}

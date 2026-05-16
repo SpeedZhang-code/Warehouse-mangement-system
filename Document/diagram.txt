@@ -1,0 +1,115 @@
+erDiagram
+    %% [核心庫存與儲位]
+    categories ||--o{ products : "分類"
+    products ||--o{ inventory_logs : "紀錄異動"
+    locations ||--o{ inventory_logs : "儲位定位"
+    products ||--o{ stock_levels : "庫存狀態"
+    locations ||--o{ stock_levels : "儲位分配"
+
+    %% [入庫流程]
+    suppliers ||--o{ inbound_orders : "供應貨物"
+    inbound_orders ||--o{ inbound_items : "包含明細"
+    products ||--o{ inbound_items : "入庫品項"
+
+    %% [出庫流程]
+    customers ||--o{ outbound_orders : "下單"
+    outbound_orders ||--o{ outbound_items : "包含明細"
+    products ||--o{ outbound_items : "出庫品項"
+
+    %% --- 欄位定義 ---
+
+    products {
+        serial id PK
+        int category_id FK
+        string sku
+        string name
+        int current_stock
+        datetime updated_at
+    }
+
+    categories {
+        serial id PK
+        string name
+        string description
+    }
+
+    locations {
+        serial id PK
+        string zone_name
+        string shelf_number
+    }
+
+    inventory_logs {
+        serial id PK
+        int product_id FK
+        int location_id FK
+        string reference_id
+        int quantity_change
+        string action_type
+        datetime created_at
+    }
+
+    stock_levels {
+        serial id PK
+        int product_id FK
+        int location_id FK
+        int quantity
+        datetime last_counted_at
+        datetime updated_at
+    }
+
+    suppliers {
+        serial id PK
+        string name
+        string contact_person
+        string phone
+        string address
+        datetime created_at
+    }
+
+    inbound_orders {
+        serial id PK
+        string order_number
+        int supplier_id FK
+        string status
+        date expected_date
+        datetime created_at
+        datetime updated_at
+    }
+
+    inbound_items {
+        serial id PK
+        int inbound_order_id FK
+        int product_id FK
+        int expected_quantity
+        int received_quantity
+        decimal unit_price
+        datetime created_at
+    }
+
+    customers {
+        serial id PK
+        string name
+        string contact_person
+        string phone
+        string address
+    }
+
+    outbound_orders {
+        serial id PK
+        string order_number
+        int customer_id FK
+        string status
+        date actual_ship_date
+        datetime created_at
+        datetime updated_at
+    }
+
+    outbound_items {
+        serial id PK
+        int outbound_order_id FK
+        int product_id FK
+        int quantity
+        decimal unit_price
+        datetime created_at
+    }

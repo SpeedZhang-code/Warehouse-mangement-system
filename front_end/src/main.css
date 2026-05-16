@@ -1,0 +1,14 @@
+/* 針對第三方套件（如 Ant Design Tabs）的覆寫樣式。 */
+/* 讓 Tabs 填滿內容區 */
+.ant-tabs-content {
+  height: 100%;
+}
+
+.ant-tabs-card > .ant-tabs-nav .ant-tabs-tab-active {
+  background: #fff !important;
+  border-bottom-color: #fff !important;
+}
+
+.ant-layout-sider {
+  box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);
+}
