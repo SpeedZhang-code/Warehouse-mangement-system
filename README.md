@@ -47,8 +47,27 @@
 
 <hr style="height: 5px; background-color: #000000; border: none;">
 
+## 版面配置
+
+<img src="./Document/picture/page_dashboard.PNG" width="80%">
+
+`APP.jsx` 所引用的主要組件、檔案路徑與功能說明。
+
+| 物件名稱 | 檔案路徑 | 功能說明 |
+| :--- | :--- | :--- |
+| **Dashboard** | `./component/dashboard.jsx` | 視覺化儀表板 |
+| **UniversalCRUD** | `./component/crud.jsx` | 資料增刪管理 |
+| **InboundManager2** | `./component/inbound2.jsx` | 入庫管理 |
+| **Manager** | `./component/Manager.jsx` | 庫存管理 |
+| **OutboundManager** | `./component/outbound.jsx` | 出貨管理 |
+| **null** | `null` | 基礎資料維護空置待做 |
+| **AnalyzePage** | `./component/analyze.jsx` | 報表分析 |
+
+
+<hr style="height: 5px; background-color: #000000; border: none;">
+
 ## 資料庫Diagram
-<img src="./Document/diagram.PNG" width="50%">
+<img src="./Document/picture/diagram.PNG" width="80%">
 
 ## 資料表關聯總覽
 
