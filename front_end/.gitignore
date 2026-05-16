@@ -23,3 +23,5 @@ password
 *.njsproj
 *.sln
 *.sw?
+
+password.txt
