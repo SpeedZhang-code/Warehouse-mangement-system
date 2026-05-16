@@ -52,17 +52,18 @@
 
 ## 資料表關聯總覽
 
-### 1. `categories` — 商品分類：用於對商品進行分類管理，每個商品必須屬於一個分類（一對多關係）。
-### 2. `products` — 商品:`current_stock` 為快取欄位，記錄目前的總庫存量，方便快速查詢，實際明細由 `stock_levels` 管理。
-### 3. `locations` — 倉儲位置:用於定義倉庫中的實體位置，一個商品可存放於多個位置（透過 `stock_levels` 關聯）。
-### 4. `stock_levels` — 各位置庫存水位:唯一索引待完成。
-### 5. `inventory_logs` — 庫存異動日誌:`reference_id` 可對應入庫單或出庫單號。
-### 6. `suppliers` — 供應商:存放供應商基本資料，一個供應商可對應多筆採購入庫訂單。
-### 7. `inbound_orders` — 採購入庫訂單:一張採購訂單，一張訂單可包含多個商品明細（`inbound_items`）。
-### 8. `inbound_items` — 採購入庫明細:`expected_quantity` 與 `received_quantity` 可用於對帳，若兩者不符代表有短缺或多收。
-### 9. `customers` — 客戶:存放客戶基本資料，與 `outbound_orders` 為一對多關係。
-### 10. `outbound_orders` — 銷售出庫訂單:一張銷售出貨訂單，一張訂單可包含多個商品明細（`outbound_items`）。
-### 11. `outbound_items` — 銷售出庫明細:記錄每張出庫訂單中各商品的出庫數量與單價，可用於計算銷售金額。
+* **1. `categories` — 商品分類**：用於對商品進行分類管理，每個商品必須屬於一個分類（一對多關係）。
+* **2. `products` — 商品**：`current_stock` 為快取欄位，記錄目前的總庫存量，方便快速查詢，實際明細由 `stock_levels` 管理。
+* **3. `locations` — 倉儲位置**：用於定義倉庫中的實體位置，一個商品可存放於多個位置（透過 `stock_levels` 關聯）。
+* **4. `stock_levels` — 各位置庫存水位**：唯一索引待完成。
+* **5. `inventory_logs` — 庫存異動日誌**：`reference_id` 可對應入庫單或出庫單號。
+* **6. `suppliers` — 供應商**：存放供應商基本資料，一個供應商可對應多筆採購入庫訂單。
+* **7. `inbound_orders` — 採購入庫訂單**：一張採購訂單，一張訂單可包含多個商品明細（`inbound_items`）。
+* **8. `inbound_items` — 採購入庫明細**：`expected_quantity` 與 `received_quantity` 可用於對帳，若兩者不符代表有短缺或多收。
+* **9. `customers` — 客戶**：存放客戶基本資料，與 `outbound_orders` 為一對多關係。
+* **10. `outbound_orders` — 銷售出庫訂單**：一張銷售出貨訂單，一張訂單可包含多個商品明細（`outbound_items`）。
+* **11. `outbound_items` — 銷售出庫明細**：記錄每張出庫訂單中各商品的出庫數量與單價，可用於計算銷售金額。
+
 
 ---
 
