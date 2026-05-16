@@ -1,4 +1,4 @@
-# 安裝所有依賴庫
+# Dependencies / Libraries
 
 初次下載專案或複製到新環境時，直接在根目錄執行此指令。它會自動依據前後端的 `package.json` 與 `package-lock.json` 安裝所有套件。
 
@@ -10,18 +10,18 @@ npm run install:all
 
 <hr style="height: 5px; background-color: #000000; border: none;">
 
-# 專案啟動說明文件
+#  Project Charter
 安裝完成後，直接在根目錄執行此指令，即可同時啟動 Vite 前端與 Node.js 後端。
 ## 🛠️ 前端啟動 (Front-end)
 
 前端專案使用 **Vite** 作為建構工具與開發伺服器管理工具。
 
-### 啟動指令
+### command line
 ```bash
 cd /front_end && npm run dev
 ```
 
-### 詳細資訊
+### Deployment Guide
 * **運行連接埠 (Port)**：`5173`
 * **本地網址**：`http://localhost:5173`
 * **工具優勢**：由 Vite 管理啟動，支援極速的熱模組替換（HMR），程式碼修改後瀏覽器會即時更新。
@@ -37,15 +37,15 @@ cd /front_end && npm run dev
 cd /back_end && node server_kenx.js
 ```
 
-### 詳細資訊
+### Deployment Guide
 * **運行連接埠 (Port)**：`5000`
 * **API 基礎網址**：`http://localhost:5000`
 
 <hr style="height: 5px; background-color: #000000; border: none;">
 
-## 專案檔案樹狀圖
+## Project File Tree
 
-### 📂 專案架構目錄
+### 📂 Project Directory Structure
 
 ```bash
 根目錄/
@@ -84,8 +84,7 @@ cd /back_end && node server_kenx.js
 
 <hr style="height: 5px; background-color: #000000; border: none;">
 
-## 版面配置
-
+## Layout
 <img src="./Document/picture/page_dashboard.PNG" width="80%">
 
 `APP.jsx` 所引用的主要組件、檔案路徑與功能說明。
@@ -103,10 +102,10 @@ cd /back_end && node server_kenx.js
 
 <hr style="height: 5px; background-color: #000000; border: none;">
 
-## 資料庫Diagram
+## Database Schema Diagram
 <img src="./Document/picture/diagram.PNG" width="80%">
 
-## 資料表關聯總覽
+## Relationships Overview
 
 * **1. `categories` — 商品分類**：用於對商品進行分類管理，每個商品必須屬於一個分類（一對多關係）。
 * **2. `products` — 商品**：`current_stock` 為快取欄位，記錄目前的總庫存量，方便快速查詢，實際明細由 `stock_levels` 管理。
