@@ -8,6 +8,9 @@
 
 ## 專案檔案樹狀圖
 
+### 📂 專案架構目錄
+
+```bash
 根目錄/
 ├── /back_end                 # 後端專案資料夾
 │   ├── /db                   # 資料庫配置
@@ -39,6 +42,8 @@
 │   └── package.json          # 前端專案核心設定與套件清單
 │
 └── /Document                 # 專案相關說明文件與規格書資料夾
+
+```
 
 <hr style="height: 5px; background-color: #000000; border: none;">
 
