@@ -1,8 +1,45 @@
-# 啟動前端
-`cd /front_end && npm run dev`
+# 安裝所有依賴庫
 
-# 啟動後端
-`cd /back_end && node server_kenx.js`
+初次下載專案或複製到新環境時，直接在根目錄執行此指令。它會自動依據前後端的 `package.json` 與 `package-lock.json` 安裝所有套件。
+
+```bash
+npm run install:all
+```
+
+* *運作原理：利用 `--prefix` 參數，自動跑完根目錄、`/front_end`、`/back_end` 三個地方的 `npm install`。*
+
+<hr style="height: 5px; background-color: #000000; border: none;">
+
+# 專案啟動說明文件
+安裝完成後，直接在根目錄執行此指令，即可同時啟動 Vite 前端與 Node.js 後端。
+## 🛠️ 前端啟動 (Front-end)
+
+前端專案使用 **Vite** 作為建構工具與開發伺服器管理工具。
+
+### 啟動指令
+```bash
+cd /front_end && npm run dev
+```
+
+### 詳細資訊
+* **運行連接埠 (Port)**：`5173`
+* **本地網址**：`http://localhost:5173`
+* **工具優勢**：由 Vite 管理啟動，支援極速的熱模組替換（HMR），程式碼修改後瀏覽器會即時更新。
+
+---
+
+## ⚙️ 後端啟動 (Back-end)
+
+後端服務由 **Node.js** 驅動，核心邏輯位於 `server_kenx.js`。
+
+### 啟動指令
+```bash
+cd /back_end && node server_kenx.js
+```
+
+### 詳細資訊
+* **運行連接埠 (Port)**：`5000`
+* **API 基礎網址**：`http://localhost:5000`
 
 <hr style="height: 5px; background-color: #000000; border: none;">
 
